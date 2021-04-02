@@ -1,0 +1,3 @@
+[submodule "html/libs/tc-lib-pdf"]
+	path = html/libs/tc-lib-pdf
+	url = https://github.com/tecnickcom/tc-lib-pdf.git

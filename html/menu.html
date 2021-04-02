@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Меню</title>
+    <meta name="description" content="Главное меню программы">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/south-street/jquery-ui.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.js"></script>
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <script>
+        $(document).ready(function() {
+            $('#menu').accordion();
+            $('.accordion .head').click(function() {
+                $(this).next().toggle('slow');
+                return false;
+            }).next().hide();
+        });
+    </script>
+
+    <div id="menu">
+        <h3><a href="#">Операции</a></h3>
+        <div>
+            <p><a href="storage.journal.operation.complex.html" target="main">Ввод новых</a></p>
+            <p><a href="storage.journal.operation.basic.html" target="main">Просмотр операций</a></p>
+            <p><a href="storage.rest.control.html" target="main">Коррекция остатков</a></p>
+        </div>
+        <h3><a href="#">Просмотр отчетов</a></h3>
+        <div>
+            <!--<p><a href="storage.report.balance.html" target="main">Остатки (вид 1)</a></p>-->
+            <p><a href="storage.report.balance.tree.html" target="main">Остатки (вид 2)</a></p>
+        </div>
+        <h3><a href="#">Справочники</a></h3>
+        <div>
+            <p><a href="storage.reference.customers.html" target="main">Контрагенты</a></p>
+            <p><a href="storage.reference.products.html" target="main">Продукция</a></p>
+        </div>
+    </div>
+</body>
+
+</html>
