@@ -83,11 +83,14 @@ abstract class StorageCustomAjaxDBGetter
     /**
      * Обработка строки запроса
      *
+     * @param int   $n Порядковый номер обрабатываемой записи (нужно для тех 
+     *                 случаев, когда ID записи не возвращается, например, 
+     *                 при агрегатных функциях в запросе)
      * @param mixed $r Массив, содержащий данные из БД
      * 
      * @return void
      */
-    abstract protected function doProcessRow($r);
+    abstract protected function doProcessRow(int $n, $r);
 
     /**
      * Установка POST переменных
@@ -316,12 +319,12 @@ abstract class StorageCustomAjaxDBGetter
      */
     public function getData(): string 
     {
-        $c = $this->_getConnection();
-        
+        $c = $this->_getConnection();        
         
         $sql = $this->getSQL(); 
         //echo $sql;
         $res = $c->Query($sql);
+        $n = 0;
         if (!$res) {
             if (!$res) {
                 die(
@@ -335,7 +338,8 @@ abstract class StorageCustomAjaxDBGetter
             $this->ares->records = $this->_count;
             //var_dump($this);
             foreach ($res as $row) {
-                $this->doProcessRow($row);
+                $this->doProcessRow($n, $row);
+                $n += 1;
             }
             return json_encode($this->ares);
         }
