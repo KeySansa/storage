@@ -80,20 +80,18 @@ class StorageRestByProductGetter extends StorageCustomAjaxDBGetter
     {
         $rc['id'] = $n;
         $rc['cell'] = array(
-            $r[1],
-            $r[2],
-            $r[3],
-            $r[4]
+            $r['id'] = $n,
+            $r['product'],
+            $r['volume']
         );
         $this->ares->rows[] = $rc;
     }
 }
 
-$getter = new StorageRestControlGetter();
+$getter = new StorageRestByProductGetter();
 
 $getter->setPost($_REQUEST);
 
 echo $getter->getData();
-
 
 ?>

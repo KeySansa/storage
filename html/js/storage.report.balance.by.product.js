@@ -1,30 +1,35 @@
 $(document).ready(function() {
 
     $('#data_table').jqGrid({
-        url: 'ajax/storage.get.balance.of.payments.php',
+        url: 'ajax/storage.get.rest.by.product.php',
         datatype: 'json',
-        colNames: ['Контрагент'
-            $capts
-        ],
+        colNames: ['Код', 'Продукция', 'Остаток'],
         colModel: [{
-                name: 'storage',
+                name: 'id',
+                width: 30
+            },
+            {
+                name: 'product',
                 width: 200
+            },
+            {
+                name: 'value',
+                width: 60
             }
-            $cols
         ],
         rowNum: 20,
         rowList: [20, 40, 100],
         autowidth: true,
         gridview: true,
         rownumbers: true,
-        altRows: false,
+        altRows: true,
         pager: '#data_pager',
         emptyrecords: 'Нет данных',
         height: '100%',
         multiselect: false,
-        sortname: 'storage',
+        sortname: 'product',
         viewrecords: true,
         sortorder: 'desc',
-        caption: 'Остатки на складах'
+        caption: 'Остатки с группировкой по продукции'
     });
 });

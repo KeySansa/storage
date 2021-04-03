@@ -324,7 +324,7 @@ abstract class StorageCustomAjaxDBGetter
         $sql = $this->getSQL(); 
         //echo $sql;
         $res = $c->Query($sql);
-        $n = 0;
+        $n = $this->_start;
         if (!$res) {
             if (!$res) {
                 die(

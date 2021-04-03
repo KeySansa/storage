@@ -76,11 +76,14 @@ class StorageCustomerGetter extends StorageCustomAjaxDBGetter
     /**
      * Обработка строки запроса
      *
+     * @param int   $n Порядковый номер обрабатываемой записи (нужно для тех 
+     *                 случаев, когда ID записи не возвращается, например, 
+     *                 при агрегатных функциях в запросе)
      * @param mixed $r Массив, содержащий данные из БД
      *
      * @return void
      */
-    function doProcessRow($r)
+    function doProcessRow(int $n, $r)
     {
         $rc['id'] = $r[0];
         $p = 'Да';
