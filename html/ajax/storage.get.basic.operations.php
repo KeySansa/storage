@@ -84,6 +84,7 @@ class StorageOperationBasicGetter extends StorageCustomAjaxDBGetter
     {
         $rc['id'] = $r[0];
         $rc['cell'] = array(
+            $r[0],
             date('d.m.Y', strtotime($r[1])),
             $r[2],
             $r[3],

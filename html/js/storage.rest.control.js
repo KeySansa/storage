@@ -31,7 +31,7 @@ $(document).ready(function() {
         gwaiting.trigger('reloadGrid');
     };
 
-    var lastsel;
+    //var lastsel;
     $('#data_table').jqGrid({
         url: 'ajax/storage.get.rest.php?df=' + vdf.val() + '&dt=' + vdt.val(),
         editurl: 'ajax/storage.edit.rest.php',
@@ -114,13 +114,13 @@ $(document).ready(function() {
         multiselect: false,
         sortname: 'dt',
         sortorder: 'desc',
-        onSelectRow: function(id) {
-            if (id && id !== lastsel) {
-                jQuery('#data_table').jqGrid('restoreRow', lastsel);
-                jQuery('#data_table').jqGrid('editRow', id, true);
-                lastsel = id;
-            }
-        },
+        //onSelectRow: function(id) {
+        //    if (id && id !== lastsel) {
+        //        jQuery('#data_table').jqGrid('restoreRow', lastsel);
+        //        jQuery('#data_table').jqGrid('editRow', id, true);
+        //        lastsel = id;
+        //    }
+        //},
         viewrecords: true,
         pager: '#data_pager',
         caption: 'Коррекция остатков на складах'

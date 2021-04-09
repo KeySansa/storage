@@ -82,8 +82,9 @@ class StorageOperationComplexListGetter extends StorageCustomAjaxDBGetter
      */
     function doProcessRow(int $n, $r)
     {
-        $rc['id'] = 0;
+        $rc['id'] = $r[0];
         $rc['cell'] = array(
+            $r[0],
             $r[1],
             $r[2],
             $r[3],

@@ -37,12 +37,18 @@ $(document).ready(function() {
         editurl: 'ajax/storage.edit.basic.operation.php',
         datatype: 'json',
         colNames: [
+            'Код',
             'Дата',
             'Контрагент',
             'Товар',
             'Количество'
         ],
         colModel: [{
+                name: 'id',
+                width: 30,
+                editable: false
+            },
+            {
                 name: 'dt',
                 width: 50,
                 editable: true,
@@ -118,9 +124,9 @@ $(document).ready(function() {
         onSelectRow: function(id) {
             if (id && id !== lastsel) {
                 jQuery('#data_table').jqGrid('restoreRow', lastsel);
-                jQuery('#data_table').jqGrid('editRow', id, true);
                 lastsel = id;
-            }
+            };
+            jQuery('#data_table').jqGrid('editRow', id, true);
         },
         viewrecords: true,
         pager: '#data_pager',

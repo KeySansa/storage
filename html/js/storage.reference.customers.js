@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    var lastsel1;
+    //var lastsel1;
 
     $('#data_table').jqGrid({
         url: 'ajax/storage.get.customers.php?parent=2',
@@ -60,13 +60,13 @@ $(document).ready(function() {
         height: '100%',
         multiselect: false,
         sortname: 'name',
-        onSelectRow: function(id) {
-            if (id && id !== lastsel1) {
-                jQuery('#data_table').jqGrid('restoreRow', lastsel1);
-                jQuery('#data_table').jqGrid('editRow', id, true);
-                lastsel1 = id;
-            }
-        },
+        //onSelectRow: function(id) {
+        //    if (id && id !== lastsel1) {
+        //        jQuery('#data_table').jqGrid('restoreRow', lastsel1);
+        //        jQuery('#data_table').jqGrid('editRow', id, true);
+        //        lastsel1 = id;
+        //    }
+        //},
         viewrecords: true,
         pager: '#data_pager',
         sortorder: 'desc',
@@ -78,7 +78,7 @@ $(document).ready(function() {
         closeOnEscape: true
     });
 
-    var lastsel2;
+    //var lastsel2;
 
     $('#enemy_data_table').jqGrid({
         url: 'ajax/storage.get.customers.php?parent=3',
@@ -125,13 +125,13 @@ $(document).ready(function() {
         height: '100%',
         multiselect: false,
         sortname: 'name',
-        onSelectRow: function(id) {
-            if (id && id !== lastsel2) {
-                jQuery('#enemy_data_table').jqGrid('restoreRow', lastsel2);
-                jQuery('#enemy_data_table').jqGrid('editRow', id, true);
-                lastsel2 = id;
-            }
-        },
+        //onSelectRow: function(id) {
+        //    if (id && id !== lastsel2) {
+        //        jQuery('#enemy_data_table').jqGrid('restoreRow', lastsel2);
+        //        jQuery('#enemy_data_table').jqGrid('editRow', id, true);
+        //        lastsel2 = id;
+        //    }
+        //},
         viewrecords: true,
         pager: '#enemy_data_pager',
         sortorder: 'desc',

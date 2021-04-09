@@ -162,13 +162,13 @@ $(document).ready(function() {
         height: '100%',
         multiselect: false,
         sortname: 'component',
-        onSelectRow: function(id) {
-            if (id && id !== lastsel1) {
-                jQuery('#recipes_table').jqGrid('restoreRow', lastsel1);
-                jQuery('#recipes_table').jqGrid('editRow', id, true);
-                lastsel1 = id;
-            }
-        },
+        //onSelectRow: function(id) {
+        //    if (id && id !== lastsel1) {
+        //        jQuery('#recipes_table').jqGrid('restoreRow', lastsel1);
+        //        jQuery('#recipes_table').jqGrid('editRow', id, true);
+        //        lastsel1 = id;
+        //    }
+        //},
         viewrecords: true,
         pager: '#recipes_pager',
         sortorder: 'desc',

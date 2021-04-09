@@ -1,8 +1,5 @@
 $(document).ready(function() {
 
-    var ddf;
-    var ddt;
-
     $.datepicker.setDefaults(
         $.extend($.datepicker.regional['ru'])
     );
@@ -38,12 +35,13 @@ $(document).ready(function() {
     };
 
 
-    var lastsel1;
+    var lastsel;
     $('#data_table').jqGrid({
         url: 'ajax/storage.get.operation.complex.list.php?df=' + vdf.val() + '&dt=' + vdt.val(),
         editurl: 'ajax/storage.edit.operation.complex.php',
         datatype: 'json',
         colNames: [
+            'Код',
             'Дата',
             'Отправитель',
             'Получатель',
@@ -53,6 +51,11 @@ $(document).ready(function() {
             'Возврат'
         ],
         colModel: [{
+                name: 'id',
+                width: 20,
+                editable: false
+            },
+            {
                 name: 'dt',
                 width: 30,
                 editable: true,
@@ -174,11 +177,11 @@ $(document).ready(function() {
         pager: '#data_pager',
         sortorder: 'desc',
         onSelectRow: function(id) {
-            if (id && id !== lastsel1) {
-                jQuery('#data_table').jqGrid('restoreRow', lastsel1);
-                jQuery('#data_table').jqGrid('editRow', id, true);
-                lastsel1 = id;
-            }
+            if (id && id !== lastsel) {
+                jQuery('#data_table').jqGrid('restoreRow', lastsel);
+                lastsel = id;
+            };
+            jQuery('#data_table').jqGrid('editRow', id, true);
         },
         caption: 'Операции за период'
     }).navGrid('#data_pager', {
