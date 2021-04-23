@@ -163,8 +163,8 @@ $(document).ready(function() {
                 }
             }
         ],
-        rowNum: 20,
-        rowList: [20, 40, 100],
+        rowNum: 50,
+        rowList: [50, 100, 150],
         autowidth: true,
         gridview: true,
         rownumbers: true,

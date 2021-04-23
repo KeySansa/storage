@@ -125,13 +125,13 @@ function execSQL(string $sql):bool
  * 
  * @return string SQL запрос, прочитанный из файла
  */
-function getSQLFromFile(string $filename, array $args = array()): string
-{
-    $handle = fopen($filename, "r");
-    $sql = fread($handle, filesize($filename));
-    fclose($handle);  
-    return sprintf($sql, $args);
-}
+#function getSQLFromFile(string $filename, array $args = array()): string
+#{
+#    $handle = fopen($filename, "r");
+#    $sql = fread($handle, filesize($filename));
+#    fclose($handle);  
+#    return sprintf($sql, $args);
+#}
 
 /**
  * Преобразование даты из "человеческого" вида в вид, понимаемый postgresql

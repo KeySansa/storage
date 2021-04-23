@@ -277,9 +277,9 @@ COMMENT ON DOMAIN public.short_name IS 'Краткое наименование'
 --
 
 CREATE TYPE public.tablefunc_crosstab_2 AS (
-    row_name text,
-    category_1 text,
-    category_2 text
+	row_name text,
+	category_1 text,
+	category_2 text
 );
 
 
@@ -290,10 +290,10 @@ ALTER TYPE public.tablefunc_crosstab_2 OWNER TO sansa;
 --
 
 CREATE TYPE public.tablefunc_crosstab_3 AS (
-    row_name text,
-    category_1 text,
-    category_2 text,
-    category_3 text
+	row_name text,
+	category_1 text,
+	category_2 text,
+	category_3 text
 );
 
 
@@ -304,11 +304,11 @@ ALTER TYPE public.tablefunc_crosstab_3 OWNER TO sansa;
 --
 
 CREATE TYPE public.tablefunc_crosstab_4 AS (
-    row_name text,
-    category_1 text,
-    category_2 text,
-    category_3 text,
-    category_4 text
+	row_name text,
+	category_1 text,
+	category_2 text,
+	category_3 text,
+	category_4 text
 );
 
 
@@ -1376,7 +1376,7 @@ IF (prod) THEN
 
     INSERT INTO "storage".base_operations	( id, ln, dt, storage_id, subject_id, volume ) 
 
-	VALUES (NEW.id, 100 + n, NEW.dt, NEW.sender_id, r.component_id, (NEW.inp * r.volume * -1) );
+  		VALUES (NEW.id, 100 + n, NEW.dt, NEW.sender_id, r.component_id, (NEW.inp * r.volume * -1) );
 
     n = n + 1;
 
@@ -1386,7 +1386,7 @@ IF (prod) THEN
 
   INSERT INTO "storage".base_operations	( id, ln, dt, storage_id, subject_id, volume ) 
 
-    VALUES (NEW.id, 1, NEW.dt, NEW.sender_id, NEW.product_id, 0 );
+	VALUES (NEW.id, 1, NEW.dt, NEW.sender_id, NEW.product_id, 0 );
 
   --- "Отдаем получателю"
 
@@ -1402,7 +1402,7 @@ ELSE
 
   INSERT INTO "storage".base_operations	( id, ln, dt, storage_id, subject_id, volume ) 
 
-    VALUES (NEW.id, 1, NEW.dt, NEW.sender_id, NEW.product_id, (NEW.inp * -1) );
+	VALUES (NEW.id, 1, NEW.dt, NEW.sender_id, NEW.product_id, (NEW.inp * -1) );
 
   --- "Отдаем получателю"
 
@@ -1418,33 +1418,33 @@ END IF;
 
   INSERT INTO "storage".base_operations
 
-    ( id, ln, dt, storage_id, subject_id, volume ) 
+	( id, ln, dt, storage_id, subject_id, volume ) 
 
-    VALUES (NEW.id, 3, NEW.dt, NEW.sender_id, NEW.product_id, (NEW.out) );
+	VALUES (NEW.id, 3, NEW.dt, NEW.sender_id, NEW.product_id, (NEW.out) );
 
   --- "Отдаем получателю"
-
-  INSERT INTO "storage".base_operations
-
-    ( id, ln, dt, storage_id, subject_id, volume ) 
-
-    VALUES (NEW.id, 4, NEW.dt, NEW.recipient_id, NEW.product_id, NEW.out * -1);
-
-  --- "Забираем" у отправителя
 
   INSERT INTO "storage".base_operations
 
 	( id, ln, dt, storage_id, subject_id, volume ) 
 
-	VALUES (NEW.id, 5, NEW.dt, 9, NEW.product_id, (NEW.rec) );
+	VALUES (NEW.id, 4, NEW.dt, NEW.recipient_id, NEW.product_id, NEW.out * -1);
+
+  --- "Забираем" у отправителя
+
+  INSERT INTO "storage".base_operations
+
+		( id, ln, dt, storage_id, subject_id, volume ) 
+
+		VALUES (NEW.id, 5, NEW.dt, 9, NEW.product_id, (NEW.rec) );
 
   --- "Отдаем получателю"
 
   INSERT INTO "storage".base_operations
 
-    ( id, ln, dt, storage_id, subject_id, volume ) 
+	( id, ln, dt, storage_id, subject_id, volume ) 
 
-    VALUES (NEW.id, 6, NEW.dt, NEW.recipient_id, NEW.product_id, NEW.rec * -1);
+	VALUES (NEW.id, 6, NEW.dt, NEW.recipient_id, NEW.product_id, NEW.rec * -1);
 
   return NEW;
 
@@ -1524,7 +1524,7 @@ IF (prod) THEN
 
     INSERT INTO "storage".base_operations	( id, ln, dt, storage_id, subject_id, volume ) 
 
-	VALUES (NEW.id, 100 + n, NEW.dt, NEW.sender_id, r.component_id, (NEW.inp * r.volume * -1) );
+  		VALUES (NEW.id, 100 + n, NEW.dt, NEW.sender_id, r.component_id, (NEW.inp * r.volume * -1) );
 
     n = n + 1;
 
@@ -1534,7 +1534,7 @@ IF (prod) THEN
 
   INSERT INTO "storage".base_operations	( id, ln, dt, storage_id, subject_id, volume ) 
 
-    VALUES (NEW.id, 1, NEW.dt, NEW.sender_id, NEW.product_id, 0 );
+	VALUES (NEW.id, 1, NEW.dt, NEW.sender_id, NEW.product_id, 0 );
 
   --- "Отдаем получателю"
 
@@ -1550,7 +1550,7 @@ ELSE
 
   INSERT INTO "storage".base_operations	( id, ln, dt, storage_id, subject_id, volume ) 
 
-    VALUES (NEW.id, 1, NEW.dt, NEW.sender_id, NEW.product_id, (NEW.inp * -1) );
+	VALUES (NEW.id, 1, NEW.dt, NEW.sender_id, NEW.product_id, (NEW.inp * -1) );
 
   --- "Отдаем получателю"
 
@@ -1566,33 +1566,33 @@ END IF;
 
   INSERT INTO "storage".base_operations
 
-    ( id, ln, dt, storage_id, subject_id, volume ) 
+	( id, ln, dt, storage_id, subject_id, volume ) 
 
-    VALUES (NEW.id, 3, NEW.dt, NEW.sender_id, NEW.product_id, (NEW.out) );
+	VALUES (NEW.id, 3, NEW.dt, NEW.sender_id, NEW.product_id, (NEW.out) );
 
   --- "Отдаем получателю"
-
-  INSERT INTO "storage".base_operations
-
-    ( id, ln, dt, storage_id, subject_id, volume ) 
-
-    VALUES (NEW.id, 4, NEW.dt, NEW.recipient_id, NEW.product_id, NEW.out * -1);
-
-  --- "Забираем" у отправителя
 
   INSERT INTO "storage".base_operations
 
 	( id, ln, dt, storage_id, subject_id, volume ) 
 
-	VALUES (NEW.id, 5, NEW.dt, 9, NEW.product_id, (NEW.rec) );
+	VALUES (NEW.id, 4, NEW.dt, NEW.recipient_id, NEW.product_id, NEW.out * -1);
+
+  --- "Забираем" у отправителя
+
+  INSERT INTO "storage".base_operations
+
+		( id, ln, dt, storage_id, subject_id, volume ) 
+
+		VALUES (NEW.id, 5, NEW.dt, 9, NEW.product_id, (NEW.rec) );
 
   --- "Отдаем получателю"
 
   INSERT INTO "storage".base_operations
 
-    ( id, ln, dt, storage_id, subject_id, volume ) 
+	( id, ln, dt, storage_id, subject_id, volume ) 
 
-    VALUES (NEW.id, 6, NEW.dt, NEW.recipient_id, NEW.product_id, NEW.rec * -1);
+	VALUES (NEW.id, 6, NEW.dt, NEW.recipient_id, NEW.product_id, NEW.rec * -1);
 
   return NEW;
 
@@ -3200,14 +3200,19 @@ ALTER TABLE public.users OWNER TO sansa;
 
 CREATE VIEW public.v_customers AS
  SELECT customers.id,
-    customers.short_name,
+    customers.created,
+    customers.creator,
+    customers.modifed,
+    customers.modifer,
+    customers.rstate,
     customers.name,
-    customers.prd,
+    customers.short_name,
     customers.parent_id,
+    customers.payer_id,
+    customers.prd,
         CASE
             WHEN ((customers.parent_id)::bigint = 2) THEN 'Свой'::text
-            WHEN ((customers.parent_id)::bigint = 3) THEN 'Сторонний'::text
-            ELSE NULL::text
+            ELSE 'Сторонний'::text
         END AS parent
    FROM public.customers;
 
@@ -3748,6 +3753,27 @@ CREATE VIEW storage.v_operations_view AS
 ALTER TABLE storage.v_operations_view OWNER TO sansa;
 
 --
+-- Name: v_rest_by_product; Type: VIEW; Schema: storage; Owner: sansa
+--
+
+CREATE VIEW storage.v_rest_by_product AS
+ SELECT v_operations_all.product,
+    sum(v_operations_all.volume) AS volume
+   FROM storage.v_operations_all
+  WHERE (v_operations_all.path ~~ '2.%'::text)
+  GROUP BY v_operations_all.product;
+
+
+ALTER TABLE storage.v_rest_by_product OWNER TO sansa;
+
+--
+-- Name: VIEW v_rest_by_product; Type: COMMENT; Schema: storage; Owner: sansa
+--
+
+COMMENT ON VIEW storage.v_rest_by_product IS 'Остатки по продукции';
+
+
+--
 -- Name: v_rest_by_storages; Type: VIEW; Schema: storage; Owner: sansa
 --
 
@@ -3769,23 +3795,35 @@ CREATE VIEW storage.v_rest_by_storages AS
 ALTER TABLE storage.v_rest_by_storages OWNER TO sansa;
 
 --
--- Name: v_rest_by_product; Type: VIEW; Schema: storage; Owner: sansa
+-- Name: VIEW v_rest_by_storages; Type: COMMENT; Schema: storage; Owner: sansa
 --
 
-CREATE VIEW storage.v_rest_by_product AS
- SELECT v_rest_by_storages.caption AS product,
-    sum(v_rest_by_storages.volume) AS volume
-   FROM storage.v_rest_by_storages
-  GROUP BY v_rest_by_storages.caption;
+COMMENT ON VIEW storage.v_rest_by_storages IS 'Остатки продукции по складам';
 
-
-ALTER TABLE storage.v_rest_by_product OWNER TO sansa;
 
 --
--- Name: VIEW v_rest_by_product; Type: COMMENT; Schema: storage; Owner: sansa
+-- Name: v_rest_recycle; Type: VIEW; Schema: storage; Owner: sansa
 --
 
-COMMENT ON VIEW storage.v_rest_by_product IS 'Остатки с группировкой по продукции';
+CREATE VIEW storage.v_rest_recycle AS
+ SELECT v_operations_complex_list.recipient_id,
+    v_operations_complex_list.recipient,
+    v_operations_complex_list.product_id,
+    v_operations_complex_list.product,
+    sum(v_operations_complex_list.rec) AS recycle
+   FROM storage.v_operations_complex_list
+  WHERE (v_operations_complex_list.rec > (0)::double precision)
+  GROUP BY v_operations_complex_list.recipient_id, v_operations_complex_list.recipient, v_operations_complex_list.product_id, v_operations_complex_list.product
+  ORDER BY v_operations_complex_list.recipient;
+
+
+ALTER TABLE storage.v_rest_recycle OWNER TO sansa;
+
+--
+-- Name: VIEW v_rest_recycle; Type: COMMENT; Schema: storage; Owner: sansa
+--
+
+COMMENT ON VIEW storage.v_rest_recycle IS 'Остатки брака по складам';
 
 
 --
@@ -4400,6 +4438,14 @@ ALTER TABLE ONLY public.base_tree
 
 ALTER TABLE ONLY public.products
     ADD CONSTRAINT products_fk_tree FOREIGN KEY (parent_id) REFERENCES public.products_tree(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- Name: base_operations base_operations_fk_storage_id; Type: FK CONSTRAINT; Schema: storage; Owner: sansa
+--
+
+ALTER TABLE ONLY storage.base_operations
+    ADD CONSTRAINT base_operations_fk_storage_id FOREIGN KEY (storage_id) REFERENCES public.customers(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --

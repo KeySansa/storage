@@ -17,7 +17,6 @@ $oper = $_REQUEST['oper'];
 if (isset($oper)) {
   
     $id = $_REQUEST['id']; 
-    $dt = ConvertDT($_REQUEST['dt']); 
     $sender_id = $_REQUEST['sender']; 
     $recipient_id = $_REQUEST['recipient']; 
     $product_id = $_REQUEST['product']; 
@@ -27,16 +26,19 @@ if (isset($oper)) {
 
     $sql="";
     if ($oper == 'add') {
+        $dt = ConvertDT($_REQUEST['dt']); 
         $sql = "INSERT INTO storage.operations_complex" . 
-	" (dt, sender_id, recipient_id, product_id, inp, rec, out)" .
-	" VALUES ('$dt', $sender_id, $recipient_id, $product_id, $inp, $rec, $out);";
+          " (dt, sender_id, recipient_id, product_id, inp, rec, out)" .
+          " VALUES " . 
+          "('$dt', $sender_id, $recipient_id, $product_id, $inp, $rec, $out);";
     }
 
     if ($oper == 'edit') {
-        $sql = getSQLFromFile(
-            'storage.edit.operation.complex.upd.sql', 
-            [$dt, $sender_id, $recipient_id, $product_id, $inp, $rec, $out]
-        );
+        $dt = $_REQUEST['dt']; 
+        $sql = "UPDATE storage.operations_complex " .
+           "SET dt='$dt', sender_id = $sender_id, recipient_id = $recipient_id, " .
+           "product_id = $product_id, inp = $inp, rec = $rec, out = $out " .
+           "WHERE id = $id";
     }
 
     if ($oper == 'del') {
